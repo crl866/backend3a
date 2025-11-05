@@ -17,11 +17,15 @@ Including another URLconf
 
 from django.urls import path, include
 from django.contrib import admin
-from registration.views import api_info
+from django.shortcuts import redirect
+
+def redirect_to_admin(request):
+    return redirect('/admin/')
 
 urlpatterns = [
-    path('', api_info, name='api_info'),  # Root URL
+    path('', redirect_to_admin, name='home'),  # Redirect root to admin
     path('admin/', admin.site.urls),
     path('registration/', include('registration.urls')),
+    path('api/', include('registration.urls')),  # Keep API available at /api/
 
 ]

@@ -15,6 +15,7 @@ def api_info(request):
         "version": "1.0",
         "endpoints": {
             "registration": "/registration/api/registration",
+            "api_registration": "/api/api/registration",
             "admin": "/admin/",
         },
         "status": "API is running successfully"
