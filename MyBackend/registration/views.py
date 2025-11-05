@@ -5,6 +5,23 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
+@api_view(['GET'])
+def api_info(request):
+    """
+    Provides information about available API endpoints
+    """
+    api_info = {
+        "message": "Welcome to the Registration API",
+        "version": "1.0",
+        "endpoints": {
+            "registration": "/registration/api/registration",
+            "admin": "/admin/",
+        },
+        "status": "API is running successfully"
+    }
+    return Response(api_info, status=status.HTTP_200_OK)
+
+
 @api_view(['GET', 'POST'])
 def register_user(request):
     if request.method == 'POST':

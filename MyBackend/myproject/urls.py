@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.urls import path, include
 from django.contrib import admin
+from registration.views import api_info
 
 urlpatterns = [
+    path('', api_info, name='api_info'),  # Root URL
     path('admin/', admin.site.urls),
     path('registration/', include('registration.urls')),
 
